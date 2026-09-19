@@ -86,7 +86,7 @@ The comparison directory includes local copies of the benchmark runners together
 
 | Script | Location | Purpose |
 |---|---|---|
-| `base_aquery.sh` | `q_query/` | Runs the q/AQuery versions of `Q0.q` through `Q9.q` after loading one of the q data loaders, such as `load_10_7.q` or `load_8.q`. |
+| `base_kdb.sh` | `q_query/` | Runs the q/kdb versions of `Q0.q` through `Q9.q` after loading one of the q data loaders, such as `load_10_7.q` or `load_8.q`. |
 | `base_l_query.sh` | `q_query/` | Runs the same q query files with the L engine.  The copied script resolves paths relative to `q_query`, so the local `load*.q` and `Qn.q` files are used. |
 | `base_postgre.sh` | `sql_query/` | Runs the PostgreSQL versions of `Q0.sql` through `Q9.sql` against the selected database, such as `financial_7` or `financial_8`.  The copied script resolves paths relative to `sql_query`. |
 
@@ -94,19 +94,19 @@ The runners support the same timing options used for the reported results, inclu
 
 ### Runner examples
 
-Run AQuery on the 10^7 data set:
+Run KDB on the 10^7 data set:
 
 ```bash
-cd /path/to/aquery-master/src/test/financial/l_query/L_comparison/q_query
-ITERATIONS=10 Q_BIN=/Users/tianxin/q/m64/q USE_SCRIPT=0 LOAD_SCRIPT=load_10_7.q \
+cd /path/to/L_comparison/q_query
+ITERATIONS=10 Q_BIN=/Users/path/q/m64/q USE_SCRIPT=0 LOAD_SCRIPT=load_10_7.q \
   PURGE_CACHE=1 PURGE_CMD="sudo /usr/sbin/purge" POST_PURGE_SLEEP=2 \
-  bash base_aquery.sh Q0.q:Q0 Q1.q:Q1 Q2.q:Q2 Q3.q:Q3 Q4.q:Q4 Q5.q:Q5 Q6.q:Q6 Q7.q:Q7 Q8.q:Q8 Q9.q:Q9
+  bash base_kdb.sh Q0.q:Q0 Q1.q:Q1 Q2.q:Q2 Q3.q:Q3 Q4.q:Q4 Q5.q:Q5 Q6.q:Q6 Q7.q:Q7 Q8.q:Q8 Q9.q:Q9
 ```
 
 Run L on the 10^8 data set:
 
 ```bash
-cd /path/to/aquery-master/src/test/financial/l_query/L_comparison/q_query
+cd /path/to/L_comparison/q_query
 ITERATIONS=10 LOAD_SCRIPT=load_8.q \
   PURGE_CACHE=1 PURGE_CMD="sudo /usr/sbin/purge" POST_PURGE_SLEEP=2 \
   bash base_l_query.sh Q0.q:Q0 Q1.q:Q1 Q2.q:Q2 Q3.q:Q3 Q4.q:Q4 Q5.q:Q5 Q6.q:Q6 Q7.q:Q7 Q8.q:Q8 Q9.q:Q9
@@ -115,7 +115,7 @@ ITERATIONS=10 LOAD_SCRIPT=load_8.q \
 Run PostgreSQL on the 10^8 database:
 
 ```bash
-cd /path/to/aquery-master/src/test/financial/l_query/L_comparison/sql_query
+cd /path/to/L_comparison/sql_query
 PG_DB=financial_8 ITERATIONS=10 \
   PURGE_CACHE=1 PURGE_CMD="sudo /usr/sbin/purge" POST_PURGE_SLEEP=2 \
   bash base_postgre.sh Q0.sql:Q0 Q1.sql:Q1 Q2.sql:Q2 Q3.sql:Q3 Q4.sql:Q4 Q5.sql:Q5 Q6.sql:Q6 Q7.sql:Q7 Q8.sql:Q8 Q9.sql:Q9
