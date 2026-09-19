@@ -94,6 +94,8 @@ The runners support the same timing options used for the reported results, inclu
 
 ### Runner examples
 
+Use different load file for KDB and L because the range of the variables may change according to the datasets and they are all included in load files.
+
 Run KDB on the 10^7 data set:
 
 ```bash
@@ -208,6 +210,10 @@ divided by average close price.
 ```
 
 ## response time
+
+Use different load file for KDB and L because the range of the variables may change according to the datasets and they are all included in load files.
+
+You can find dataset generation code here: https://github.com/pequeniajugar/L_issues/blob/main/dataset/generate_financial_csv.py
 
 ### Benchmark environment
 
