@@ -1,6 +1,6 @@
-## L schema
+## q schema
 
-The L benchmark loads the financial data directly from q binary table files into in-memory q/L tables.  The loader then assigns the benchmark column names with `xcol`.
+The L & kdb benchmark loads the financial data directly from q binary table files into in-memory q/L tables.  The loader then assigns the benchmark column names with `xcol`.
 
 | Table | Column | q/L type | Notes |
 |---|---|---:|---|
